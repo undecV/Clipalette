@@ -2,469 +2,654 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <script>
-    // Customize Your CopyBoard Here!
-    const buttonMap = {
-      "Emoji": [
-        ["😂", "🤣", "😅", "😆", "😎", "😏", "😪", "😉", "🤔", "🤷‍♀️", "🤦‍♀️", "👌", "🖖", "🤟", "💮", "💢", "🍜", "🍭"],
-        ["（・ω<）てへぺろ", "ヾ(≧∇≦*)ゝおはよんよん♪", "(*´･д･)ﾉ☆ｺﾝﾊﾞﾝﾊ☆", "（・∀・）∩＜やぁ！！"],
-      ], "Greek": [
-        ["α", "β", "γ", "δ", "ϵ", "ζ", "η", "θ", "ι", "κ", "λ", "μ", "ν", "ξ", "ο", "π", "ρ", "σ", "τ", "υ", "ϕ", "χ", "ψ", "ω"],
-        ["Α", "Β", "Γ", "Δ", "Ε", "Ζ", "Η", "Θ", "Ι", "Κ", "Λ", "Μ", "Ν", "Ξ", "Ο", "Π", "Ρ", "Σ", "Τ", "Υ", "Φ", "Χ", "Ψ", "Ω"],
-      ], "Math": [
-        ["ε", "ϑ", "ϰ", "ϖ", "ϱ", "ς", "φ", "ϒ"],
-        ["×", "÷", "√", "∞", "π", "≠", "≤", "≥", "≃", "∫", "∑", "∏", "∂", "∇", "⊕", "⊗", "∧", "∨", "¬", "⊻", "⊼", "⊽"],
-        ["⫫", "∅", "∈", "∋", "∉", "∌", "⊂", "⊃", "⊆", "⊇", "⊄", "⊅", "⋃", "⋂", "∀", "∃", "∄", "∍", "∴", "∵"],
-      ]
-    }
-  </script>
+    <script>
+        // Customize Your Clipalette Paste Board Here!
+        const buttonMap = {
+            "Emoji": [
+                ["😂", "🤣", "😅", "😆", "😎", "😏", "😪", "😉", "🤔", "🤷‍♀️", "🤦‍♀️", "👌", "🖖", "🤟", "💮",
+                    "💢", "🍜", "🍭"],
+                ["（・ω<）てへぺろ", "ヾ(≧∇≦*)ゝおはよんよん♪", "(*´･д･)ﾉ☆ｺﾝﾊﾞﾝﾊ☆", "（・∀・）∩＜やぁ！！"],
+            ], "Greek": [
+                ["α", "β", "γ", "δ", "ϵ", "ζ", "η", "θ", "ι", "κ", "λ", "μ", "ν", "ξ", "ο", "π", "ρ", "σ", "τ", "υ",
+                    "ϕ", "χ", "ψ", "ω"],
+                ["Α", "Β", "Γ", "Δ", "Ε", "Ζ", "Η", "Θ", "Ι", "Κ", "Λ", "Μ", "Ν", "Ξ", "Ο", "Π", "Ρ", "Σ", "Τ", "Υ",
+                    "Φ", "Χ", "Ψ", "Ω"],
+            ], "Math": [
+                ["ε", "ϑ", "ϰ", "ϖ", "ϱ", "ς", "φ", "ϒ"],
+                ["×", "÷", "√", "∞", "π", "≠", "≤", "≥", "≃", "∫", "∑", "∏", "∂", "∇", "⊕", "⊗", "∧", "∨", "¬", "⊻",
+                    "⊼", "⊽"],
+                ["⫫", "∅", "∈", "∋", "∉", "∌", "⊂", "⊃", "⊆", "⊇", "⊄", "⊅", "⋃", "⋂", "∀", "∃", "∄", "∍", "∴", "∵"],
+            ]
+        }
+    </script>
 
-  <title>CopyBoard</title>
-  <meta name="robots" content="noindex" />
-  <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📋</text></svg>">
+    <title>Clipalette</title>
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22>
+        <text y=%22.9em%22 font-size=%2290%22>📋</text></svg>">
 
-  <style>
-    /* Default theme.*/
-    :root {
-      /* Color theme: Tomorrow */
-      --foreground: #4d4d4c;
-      --background: #ffffff;
-      --selection: #d6d6d6;
-      --line: #efefef;
-      --comment: #8e908c;
-      --red: #c82829;
-      --orange: #f5871f;
-      --yellow: #eab700;
-      --green: #718c00;
-      --aqua: #3e999f;
-      --blue: #4271ae;
-      --purple: #8959a8;
-      --window: #efefef;
-    }
+    <style>
+        :root,
+        :root[data-theme="light"] {
+            /* Color theme: Tomorrow */
+            --foreground: #4d4d4c;
+            --background: #ffffff;
+            --selection: #d6d6d6;
+            --line: #efefef;
+            --comment: #8e908c;
+            --red: #c82829;
+            --orange: #f5871f;
+            --yellow: #eab700;
+            --green: #718c00;
+            --aqua: #3e999f;
+            --blue: #4271ae;
+            --purple: #8959a8;
+            --window: #efefef;
+        }
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        /* Color theme: Tomorrow Night */
-        --foreground: #c5c8c6;
-        --background: #1d1f21;
-        --selection: #373b41;
-        --line: #282a2e;
-        --comment: #969896;
-        --red: #cc6666;
-        --orange: #de935f;
-        --yellow: #f0c674;
-        --green: #b5bd68;
-        --aqua: #8abeb7;
-        --blue: #81a2be;
-        --purple: #b294bb;
-        --window: #4d5057;
-      }
-    }
+        :root[data-theme="dark"] {
+            /* Color theme: Tomorrow Night */
+            --foreground: #c5c8c6;
+            --background: #1d1f21;
+            --selection: #373b41;
+            --line: #282a2e;
+            --comment: #969896;
+            --red: #cc6666;
+            --orange: #de935f;
+            --yellow: #f0c674;
+            --green: #b5bd68;
+            --aqua: #8abeb7;
+            --blue: #81a2be;
+            --purple: #b294bb;
+            --window: #4d5057;
+        }
 
-    @media (prefers-color-scheme: light) {
-      :root {
-        /* Color theme: Tomorrow */
-        --foreground: #4d4d4c;
-        --background: #ffffff;
-        --selection: #d6d6d6;
-        --line: #efefef;
-        --comment: #8e908c;
-        --red: #c82829;
-        --orange: #f5871f;
-        --yellow: #eab700;
-        --green: #718c00;
-        --aqua: #3e999f;
-        --blue: #4271ae;
-        --purple: #8959a8;
-        --window: #efefef;
-      }
-    }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                /* Color theme: Tomorrow Night */
+                --foreground: #c5c8c6;
+                --background: #1d1f21;
+                --selection: #373b41;
+                --line: #282a2e;
+                --comment: #969896;
+                --red: #cc6666;
+                --orange: #de935f;
+                --yellow: #f0c674;
+                --green: #b5bd68;
+                --aqua: #8abeb7;
+                --blue: #81a2be;
+                --purple: #b294bb;
+                --window: #4d5057;
+            }
+        }
 
-    :root[data-theme="light"] {
-      /* Color theme: Tomorrow */
-      --foreground: #4d4d4c;
-      --background: #ffffff;
-      --selection: #d6d6d6;
-      --line: #efefef;
-      --comment: #8e908c;
-      --red: #c82829;
-      --orange: #f5871f;
-      --yellow: #eab700;
-      --green: #718c00;
-      --aqua: #3e999f;
-      --blue: #4271ae;
-      --purple: #8959a8;
-      --window: #efefef;
-    }
+        @media (prefers-color-scheme: light) {
+            :root {
+                /* Color theme: Tomorrow */
+                --foreground: #4d4d4c;
+                --background: #ffffff;
+                --selection: #d6d6d6;
+                --line: #efefef;
+                --comment: #8e908c;
+                --red: #c82829;
+                --orange: #f5871f;
+                --yellow: #eab700;
+                --green: #718c00;
+                --aqua: #3e999f;
+                --blue: #4271ae;
+                --purple: #8959a8;
+                --window: #efefef;
+            }
+        }
 
-    :root[data-theme="dark"] {
-      /* Color theme: Tomorrow Night */
-      --foreground: #c5c8c6;
-      --background: #1d1f21;
-      --selection: #373b41;
-      --line: #282a2e;
-      --comment: #969896;
-      --red: #cc6666;
-      --orange: #de935f;
-      --yellow: #f0c674;
-      --green: #b5bd68;
-      --aqua: #8abeb7;
-      --blue: #81a2be;
-      --purple: #b294bb;
-      --window: #4d5057;
-    }
+        :root {
+            color-scheme: light dark;
+            --radius: .5em;
+            --sans-serif: system-ui, sans-serif;
+            --monospace: monospace;
+        }
 
-    :root {
-      color-scheme: light dark;
-      --radius: .5em;
-      --sans-serif: system-ui, sans-serif;
-    }
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+        }
 
-    html,
-    body {
-      height: 100%;
-      min-width: 100%;
-      background-color: var(--background);
-      color: var(--foreground);
-      font-family: var(--sans-serif);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+        body {
+            background-color: var(--background);
+            color: var(--foreground);
+            font-family: var(--sans-serif);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-    main {
-      width: 100%;
-      height: 100%;
-      flex: 1;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+        main {
+            flex: 1;
+            width: 60%;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
 
-    div.container#main-container {
-      width: 80%;
-      display: flex;
-      text-align: center;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1em;
-    }
+        footer {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .2em;
+            margin-bottom: .4em;
+        }
 
-    input#copy-text {
-      font-size: 1.6em;
-      text-align: center;
-      width: 60%;
-      color: var(--foreground);
-      background-color: var(--selection);
-      border: none;
-      border-radius: var(--radius);
-      padding: .2em 1em;
-    }
+        footer p {
+            margin: 0;
+            font-size: small;
+            color: var(--comment);
+        }
 
-    input#copy-text:focus {
-      outline: .2em solid var(--blue);
-    }
+        hr {
+            min-height: .15em;
+            width: 100%;
+            border: None;
+            border-radius: var(--radius);
+            color: var(--line);
+            background-color: var(--line);
+            margin: 1.8em 0;
+        }
 
-    hr {
-      min-height: .15em;
-      width: 100%;
-      border: none;
-      border-radius: var(--radius);
-      color: var(--line);
-      background-color: var(--line);
-    }
+        .selection {
+            display: inline-flex;
+            padding: .4em;
+            gap: .2em;
+            border-radius: var(--radius);
+            background-color: var(--line);
+        }
 
-    button {
-      font-family: monospace;
-      color: var(--foreground);
-      background-color: var(--line);
-      border: None;
-      border-radius: var(--radius);
-      padding: .2em .2em;
-    }
+        .selection .item {
+            display: flex;
+            border-radius: var(--radius);
+        }
 
-    button:hover {
-      background-color: var(--selection);
-    }
+        .selection .item .text {
+            font-family: var(--sans-serif);
+            padding: .2em 1em;
+            color: var(--foreground);
+            border-radius: var(--radius);
+        }
 
-    button:focus {
-      background-color: var(--selection);
-      outline: .2em solid var(--blue);
-    }
+        .selection.is-icon .item .text {
+            padding: .2em .4em;
+        }
 
-    .text-button {
-      font-size: 1em;
-    }
+        .selection .item input {
+            display: none;
+        }
 
-    .tab-view-container {
-      display: flex;
-      text-align: center;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1em;
-    }
+        .selection .item input:checked+.text {
+            background-color: var(--selection);
+        }
 
-    .tab-view {
-      display: flex;
-      text-align: center;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: .4em;
-    }
+        button {
+            color: var(--foreground);
+            background-color: var(--line);
+            border: None;
+            border-radius: var(--radius);
+            padding: .2em .2em;
+            box-sizing: border-box;
+        }
 
-    .tab-view-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: .4em;
-    }
+        button:hover {
+            background-color: var(--selection);
+        }
 
-    .selection {
-      display: inline-flex;
-      padding: .4em;
-      gap: .2em;
-      border-radius: var(--radius);
-      background-color: var(--line);
-    }
+        button:focus {
+            background-color: var(--selection);
+            outline: .2em solid var(--blue);
+        }
 
-    .selection .item {
-      display: flex;
-      border-radius: var(--radius);
-    }
+        .input-field {
+            width: 60%;
+            font-size: x-large;
+            font-family: var(--sans-serif);
+            display: flex;
+            align-items: center;
+            /* gap: .4em; */
+            padding: 0;
+            margin: 0;
+            border: none;
+            height: 1.8em;
+        }
 
-    .selection .item .text {
-      font-family: var(--sans-serif);
-      padding: .2em 1em;
-      color: var(--foreground);
-      border-radius: var(--radius);
-    }
+        .input-field * {
+            height: 100%;
+            margin: 0;
+            border: none;
+            box-sizing: border-box;
+            border-radius: var(--radius);
+        }
 
-    .selection.is-icon .item .text {
-      padding: .2em .4em;
-    }
+        .input-field input {
+            flex: 1;
+            font-size: inherit;
+            text-align: center;
+            color: var(--foreground);
+            background-color: var(--selection);
+            padding: .2em 1em;
+        }
 
-    .selection .item input {
-      display: none;
-    }
+        .input-field input::placeholder {
+            color: var(--comment);
+            opacity: .6;
+        }
 
-    .selection .item input:checked+.text {
-      background-color: var(--selection);
-    }
+        .input-field input:focus {
+            outline: .2em solid var(--blue);
+        }
 
-    .is-hidden {
-      display: none;
-    }
-  </style>
+        .input-field button {
+            font-size: large;
+            font-family: inherit;
+            height: 100%;
+            aspect-ratio: 1 / 1;
+            padding: .2em .2em;
+            margin-left: .4em;
+            color: var(--foreground);
+            background-color: var(--line);
+        }
+
+        .input-field button:hover {
+            background-color: var(--selection);
+        }
+
+        .tabview {
+            height: 60%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2em;
+            min-height: 0;
+        }
+
+        .tabview-tab-panel-container {
+            flex: 1;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-y: auto;
+        }
+
+        .tabview-tab-panel {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .8em;
+            padding: .4em;
+            box-sizing: border-box;
+        }
+
+        .click-board-panel-row {
+            max-width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: .4em;
+        }
+
+        .is-hidden {
+            display: none;
+        }
+
+        a {
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        a:visited {
+            color: var(--purple);
+        }
+    </style>
 </head>
 
 <body>
-  <main>
-    <div id="main-container" class="container">
-      <label>
-        <input id="copy-text" class="form-control" aria-label="Copy text input field" name="copy-text" tabindex="0"
-          placeholder="📋 CopyBoard">
-      </label>
-      <hr id="copy-text-horizon" />
-      <div id="tab-switch" class="selection">
-        <template id="tab-label-template">
-          <label class="item">
-            <input data-role="input" type="radio" name="tab-switch">
-            <div data-role="label" class="text">Default</div>
-          </label>
-        </template>
-      </div>
-      <div id="tab-view-container" class="tab-view-container">
-      </div>
-      <template>
-        <div class="tab-view-container">
-          <div class="tab-view">
-            <div class="tab-view-row">
-              <button class="text-button">😂</button>
+    <main>
+        <fieldset id="output-bar" class="input-field">
+            <input id="click-board-output" placeholder="📋 CopyBoard" />
+            <button id="click-board-copy-button">📋</button>
+            <button id="click-board-clean-button">🧹</button>
+        </fieldset>
+        <hr />
+        <div id="click-board-tabview" class="tabview">
+            <div id="click-board-tabview-tab-list" class="tabview-tab-list selection">
+                <template id="click-board-tabview-tab-template">
+                    <label class="item">
+                        <input data-role="input" type="radio" name="tab-switch" value="Template">
+                        <div data-role="label" class="text">Template</div>
+                    </label>
+                </template>
             </div>
-          </div>
+            <div id="click-board-tabview-panel-container" class="tabview-tab-panel-container">
+                <template id="click-board-tabview-panel-template">
+                    <div class="tabview-tab-panel click-board-panel">
+                        <template id="click-board-tabview-panel-row-template">
+                            <div class="click-board-panel-row">
+                                <template id="click-board-tabview-button-template">
+                                    <button class="click-board-button">1.1</button>
+                                </template>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+            </div>
         </div>
-      </template>
-  </main>
-  <footer>
-    <div id="theme-selector" class="selection is-icon">
-      <label class="item">
-        <input type="radio" name="theme-selector" value="auto">
-        <div class="text">🌐</div>
-      </label>
-      <label class="item">
-        <input type="radio" name="theme-selector" value="light">
-        <div class="text">🌞</div>
-      </label>
-      <label class="item">
-        <input type="radio" name="theme-selector" value="dark" checked>
-        <div class="text">🌚</div>
-      </label>
-    </div>
-  </footer>
+    </main>
+    <footer>
+        <div>
+            <div id="theme-selector" class="selection is-icon">
+                <label class="item">
+                    <input type="radio" name="theme-selector" value="auto" checked>
+                    <div class="text">🌐</div>
+                </label>
+                <label class="item">
+                    <input type="radio" name="theme-selector" value="light">
+                    <div class="text">🌞</div>
+                </label>
+                <label class="item">
+                    <input type="radio" name="theme-selector" value="dark">
+                    <div class="text">🌚</div>
+                </label>
+            </div>
+            <div id="mode-selector" class="selection is-icon">
+                <label class="item">
+                    <input type="radio" name="mode-selector" value="auto" checked>
+                    <div class="text">⚡</div>
+                </label>
+                <label class="item">
+                    <input type="radio" name="mode-selector" value="manual">
+                    <div class="text">👋</div>
+                </label>
+            </div>
+        </div>
+        <p>Copyright © <a href="https://github.com/undecV" target="_blank">undecV</a></p>
+    </footer>
 
-  <script>
-    class Model {
-      buttonMap = buttonMap;
-      themes = ["auto", "light", "dark"];
-      #theme = "dark";
-      #tabIndex = "0";
+    <script>
+        class Model {
+            buttonMap = buttonMap;
+            themes = ["auto", "light", "dark"];
+            #theme = "auto";
+            modes = ["auto", "manual"];
+            #mode = "auto"
+            #tabIndex = "0";
+            outputTextList = [];
+            separator = " ";
 
-      constructor() {
-        this.theme = localStorage.getItem("copyboard-theme");
-        this.tabIndex = localStorage.getItem("copyboard-tab-index");
-      }
+            constructor() {
+                this.theme = localStorage.getItem("clipalette-theme");
+                this.mode = localStorage.getItem("clipalette-mode");
+                this.tabIndex = localStorage.getItem("clipalette-tab-index");
+            }
 
-      get theme() {
-        return this.#theme;
-      }
+            get theme() {
+                return this.#theme;
+            }
 
-      set theme(value) {
-        this.#theme = this.themes.includes(value) ? value : this.themes[0];
-        localStorage.setItem("copyboard-theme", this.#theme);
-      }
+            set theme(value) {
+                this.#theme = this.themes.includes(value) ? value : this.themes[0];
+                localStorage.setItem("clipalette-theme", this.#theme);
+            }
 
-      get tabIndex() {
-        return this.#tabIndex;
-      }
+            get mode() {
+                return this.#mode;
+            }
 
-      set tabIndex(value) {
-        const indices = Object.keys(buttonMap).map((_, i) => i);
-        const index = typeof value === "number" ? value : parseInt(value, 10);
-        this.#tabIndex = indices.includes(index) ? index : indices[0];
-        localStorage.setItem("copyboard-tab-index", this.#tabIndex);
-      }
-    }
+            set mode(value) {
+                this.#mode = this.modes.includes(value) ? value : this.modes[0];
+                localStorage.setItem("clipalette-mode", this.#mode);
+            }
 
-    class View {
-      constructor() { }
+            get tabIndex() {
+                return this.#tabIndex;
+            }
 
-      onThemeChange(callback) {
-        const themeSelector = document.getElementById("theme-selector");
-        themeSelector.addEventListener("change", (event) => {
-          callback(event.target.value);
-        });
-      }
+            set tabIndex(value) {
+                const indices = Object.keys(buttonMap).map((_, i) => i);
+                const index = typeof value === "number" ? value : parseInt(value, 10);
+                this.#tabIndex = indices.includes(index) ? index : indices[0];
+                localStorage.setItem("clipalette-tab-index", this.#tabIndex);
+            }
 
-      onTabChange(callback) {
-        const tabSwitch = document.getElementById("tab-switch");
-        tabSwitch.addEventListener("change", (event) => {
-          callback(event.target.value);
-        });
-      }
+            get outputText() {
+                return this.outputTextList.join(this.separator);
+            }
+        }
 
-      switchTheme(theme) {
-        document.documentElement.setAttribute("data-theme", theme);
-        document.querySelector(`input[name="theme-selector"][value="${theme}"]`).checked = true;
-      }
+        class View {
 
-      switchTab(index) {
-        document.querySelector(`input[name="tab-switch"][value="${index}"]`).checked = true;
-        document.querySelectorAll("#tab-view-container > *").forEach((element, i) => {
-          element.classList.toggle("is-hidden", i != index);
-        });
-      }
+            switchTheme(theme) {
+                document.documentElement.setAttribute("data-theme", theme);
+                document.querySelector(`input[name="theme-selector"][value="${theme}"]`).checked = true;
+            }
 
-      renderButtonMap(buttonMap) {
-        const tabSwitch = document.getElementById("tab-switch");
-        const tabLabelTemplate = document.getElementById("tab-label-template");
-        const tabViewContainer = document.getElementById("tab-view-container");
+            onThemeChange(callback) {
+                const themeSelector = document.getElementById("theme-selector");
+                themeSelector.addEventListener("change", (event) => {
+                    callback(event.target.value);
+                });
+            }
 
-        Object.entries(buttonMap).forEach(([tabName, tabRows], tabIndex) => {
-          const tabLabel = tabLabelTemplate.content.firstElementChild.cloneNode(true);
-          tabLabel.dataset.index = tabIndex.toString();
-          const input = tabLabel.querySelector('[data-role="input"]');
-          const label = tabLabel.querySelector('[data-role="label"]');
-          input.checked = tabIndex === 0;
-          input.value = tabIndex.toString();
-          input.dataset.index = tabIndex.toString();
-          label.textContent = tabName;
-          tabSwitch.appendChild(tabLabel);
+            onClickBoardCopyButtonClick(callback) {
+                const copyButton = document.getElementById("click-board-copy-button");
+                copyButton.addEventListener("click", (event) => {
+                    callback(event);
+                });
+            }
 
-          const tabView = document.createElement("div");
-          tabView.classList.toggle("tab-view", true);
-          tabView.classList.toggle("is-hidden", tabIndex > 0);
-          tabView.dataset.index = tabIndex.toString();
-          tabViewContainer.appendChild(tabView);
+            onClickBoardCleanButtonClick(callback) {
+                const cleanButton = document.getElementById("click-board-clean-button");
+                cleanButton.addEventListener("click", (event) => {
+                    callback(event);
+                });
+            }
 
-          tabRows.forEach((tabRow, tabRowIndex) => {
-            const tabViewRow = document.createElement("div");
-            tabViewRow.classList.toggle("tab-view-row", true);
-            tabViewRow.dataset.index = tabRowIndex.toString();
-            tabView.appendChild(tabViewRow);
+            renderButtonMap(buttonMap, currentTabIndex = "0") {
+                const tabview = document.getElementById("click-board-tabview");
+                const tabList = document.getElementById("click-board-tabview-tab-list");
+                const tabTemplate = document.getElementById("click-board-tabview-tab-template");
 
-            tabRow.forEach((button, buttonIndex) => {
-              const buttonElement = document.createElement("button");
-              buttonElement.classList.toggle("text-button", true);
-              buttonElement.dataset.index = buttonIndex.toString();
-              buttonElement.textContent = button;
-              tabViewRow.appendChild(buttonElement);
-            });
-          });
-        });
-      }
+                const tabPanelContainer = document.getElementById("click-board-tabview-panel-container");
+                const tabPanelTemplate = document.getElementById("click-board-tabview-panel-template");
+                const tabPanelRowTemplate = tabPanelTemplate.content.getElementById("click-board-tabview-panel-row-template");
+                const tabPanelButtonTemplate = tabPanelRowTemplate.content.getElementById("click-board-tabview-button-template");
 
-      onTextButtonClick(callback) {
-        console.log("onTextButtonClick");
-        const buttons = document.querySelectorAll(".text-button");
-        buttons.forEach(button => {
-          button.addEventListener("click", (event) => {
-            const text = event.target.textContent;
-            console.log(text);
-            callback(text);
-          });
-        });
-      }
+                Object.entries(buttonMap).forEach(([tabName, tabRows], tabIndex) => {
+                    const tab = tabTemplate.content.firstElementChild.cloneNode(true);
+                    tab.dataset.index = tabIndex.toString();
+                    const input = tab.querySelector('[data-role="input"]');
+                    const label = tab.querySelector('[data-role="label"]');
 
-      renderCopiedText(text) {
-        const copyTextInput = document.getElementById("copy-text");
-        copyTextInput.value = text;
-      }
-    }
+                    input.checked = (tabIndex == currentTabIndex);
+                    input.value = tabIndex.toString();
+                    input.dataset.index = tabIndex.toString();
+                    label.textContent = tabName;
+                    tabList.appendChild(tab);
 
-    class Controller {
-      constructor(model = new Model(), view = new View()) {
-        this.model = model;
-        this.view = view;
-      }
+                    const tabPanel = tabPanelTemplate.content.firstElementChild.cloneNode(true);
+                    tabPanel.dataset.index = tabIndex.toString();
 
-      init() {
-        this.view.renderButtonMap(this.model.buttonMap);
-        this.view.switchTheme(this.model.theme);
-        this.view.switchTab(this.model.tabIndex);
-        this.view.onThemeChange((theme) => this.handleThemeChange(theme));
-        this.view.onTabChange((index) => this.handleTabChange(index));
-        this.view.onTextButtonClick((text) => this.handleTextButtonClick(text));
-      }
+                    tabRows.forEach((tabRow, tabRowIndex) => {
 
-      handleThemeChange(theme) {
-        this.model.theme = theme;
-        this.view.switchTheme(this.model.theme);
-      }
+                        const tabPanelRow = tabPanelRowTemplate.content.firstElementChild.cloneNode(true);
+                        tabRow.forEach((button, buttonIndex) => {
+                            const buttonElement = tabPanelButtonTemplate.content.firstElementChild.cloneNode(true);
+                            buttonElement.dataset.index = buttonIndex.toString();
+                            buttonElement.textContent = button;
+                            tabPanelRow.appendChild(buttonElement);
+                        });
+                        tabPanel.appendChild(tabPanelRow);
+                    });
+                    tabPanel.classList.toggle("is-hidden", tabIndex != currentTabIndex);
+                    tabPanelContainer.appendChild(tabPanel);
+                });
+            }
 
-      handleTabChange(index) {
-        this.model.tabIndex = index;
-        this.view.switchTab(this.model.tabIndex);
-      }
+            switchTab(index) {
+                document.querySelector(`input[name="tab-switch"][value="${index}"]`).checked = true;
+                document.querySelectorAll(".click-board-panel").forEach((element, i) => {
+                    element.classList.toggle("is-hidden", element.dataset.index != index);
+                });
+            }
 
-      handleTextButtonClick(text) {
-        navigator.clipboard.writeText(text).catch(() => { })
-        this.view.renderCopiedText(text);
-      }
-    }
+            onTabChange(callback) {
+                const tabSwitch = document.getElementById("click-board-tabview-tab-list");
+                tabSwitch.addEventListener("change", (event) => {
+                    callback(event.target.value);
+                });
+            }
 
-    const control = new Controller();
-    control.init();
-  </script>
+            onTextButtonClick(callback) {
+                const buttons = document.querySelectorAll(".click-board-button");
+                buttons.forEach(button => {
+                    button.addEventListener("click", (event) => {
+                        const text = event.target.textContent;
+                        callback(text);
+                    });
+                });
+            }
+
+            renderCopiedText(text) {
+                const clickBoardOutput = document.getElementById("click-board-output");
+                clickBoardOutput.value = text;
+            }
+
+            switchMode(mode) {
+                document.documentElement.setAttribute("data-mode", mode);
+                document.querySelector(`input[name="mode-selector"][value="${mode}"]`).checked = true;
+                const copyButton = document.getElementById("click-board-copy-button");
+                const cleanButton = document.getElementById("click-board-clean-button");
+
+                switch (mode) {
+                    case "auto":
+                        copyButton.classList.toggle("is-hidden", true);
+                        cleanButton.classList.toggle("is-hidden", true);
+                        break;
+                    case "manual":
+                        copyButton.classList.toggle("is-hidden", false);
+                        cleanButton.classList.toggle("is-hidden", false);
+                        break;
+                    default:
+                        console.error("Unknown mode:", mode);
+                        break;
+                }
+            }
+
+            onModeChange(callback) {
+                const modeSelector = document.getElementById("mode-selector");
+                modeSelector.addEventListener("change", (event) => {
+                    callback(event.target.value);
+                });
+            }
+
+            toggleMode(mode = "auto") {
+
+            }
+        }
+
+        class Controller {
+            constructor(model = new Model(), view = new View()) {
+                this.model = model;
+                this.view = view;
+            }
+
+            init() {
+                this.view.switchTheme(this.model.theme);
+                this.view.switchMode(this.model.mode);
+                this.view.renderButtonMap(this.model.buttonMap);
+                this.view.switchTab(this.model.tabIndex);
+                this.view.renderCopiedText(this.model.outputText);
+                this.view.onThemeChange((theme) => this.handleThemeChange(theme));
+                this.view.onModeChange((mode) => this.handleModeChange(mode));
+                this.view.onTabChange((index) => this.handleTabChange(index));
+                this.view.onTextButtonClick((text) => this.handleTextButtonClick(text));
+                this.view.onClickBoardCopyButtonClick((event) => this.handleClickBoardCopyButtonClick(event));
+                this.view.onClickBoardCleanButtonClick((event) => this.handleClickBoardCleanButtonClick(event));
+            }
+
+            handleThemeChange(theme) {
+                this.model.theme = theme;
+                this.view.switchTheme(this.model.theme);
+            }
+
+            handleTabChange(index) {
+                this.model.tabIndex = index;
+                this.view.switchTab(this.model.tabIndex);
+            }
+
+            handleModeChange(mode) {
+                this.model.mode = mode;
+                this.view.switchMode(this.model.mode);
+            }
+
+            handleClickBoardCopyButtonClick(event) {
+                const clickBoardOutput = document.getElementById("click-board-output");
+                const text = clickBoardOutput.value;
+                this.copyText(text);
+            }
+
+            handleClickBoardCleanButtonClick(event) {
+                this.model.outputTextList = [];
+                this.view.renderCopiedText(this.model.outputText);
+            }
+
+            handleTextButtonClick(text) {
+                switch (this.model.mode) {
+                    case "auto":
+                        this.model.outputTextList = [text];
+                        break;
+                    case "manual":
+                        this.model.outputTextList.push(text);
+                        break;
+                    default:
+                        console.error("Unknown mode:", this.model.mode);
+                        break;
+                }
+                this.view.renderCopiedText(this.model.outputText);
+                const status = {
+                    mode: this.model.mode,
+                    outputTextList: this.model.outputTextList,
+                    outputText: this.model.outputText,
+                }
+                console.debug(JSON.stringify(status));
+                this.copyText(this.model.outputText);
+            }
+
+            copyText(text) {
+                navigator.clipboard.writeText(text).catch(() => { });
+                console.debug(`Copied: ${text}`);
+            }
+
+        }
+
+        const control = new Controller();
+        control.init();
+
+    </script>
 </body>
 
 </html>
