@@ -4,7 +4,7 @@
 
 [English](README.md) | [正體中文](docs/README.zh_TW.md)
 
-![Screenshot](docs/screenshots/screenshot.v2.png)
+![Screenshot](./screenshots/screenshot.v2.png)
 
 Clipalette 是一款簡潔、輕量、易於客製的快速複製面板工具，  
 讓常用字串、符號與片語變成可點擊的按鈕，提高輸入效率。
