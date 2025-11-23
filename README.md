@@ -2,9 +2,9 @@
 
 Copy Once, Paste Everywhere
 
-[English](README.md) | [繁體中文](docs/README.zh_TW.md)
+[English](./README.md) | [繁體中文](./docs/README.zh_TW.md)
 
-![Screenshot](docs/screenshots/screenshot.v2.png)
+![Screenshot](./docs/screenshots/screenshot.v2.png)
 
 Clipalette is a simple, lightweight, and highly customizable copy panel  
 that turns frequently used strings, symbols, and phrases into clickable buttons—  

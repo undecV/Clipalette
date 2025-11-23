@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <script>
         // Customize Your Clipalette Paste Board Here!
@@ -27,9 +28,15 @@
     </script>
 
     <title>Clipalette</title>
-    <meta name="robots" content="noindex" />
+    <meta name="description" content="Clipalette — A lightweight, customizable copy panel for quick access to frequently used text snippets." />
+    <meta name="author" content="undecV" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1d1f21" media="(prefers-color-scheme: dark)" />
+    <meta property="og:title" content="Clipalette" />
+    <meta property="og:description" content="A lightweight, customizable copy panel for quick access to frequently used text snippets." />
+    <meta property="og:type" content="website" />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22>
-        <text y=%22.9em%22 font-size=%2290%22>📋</text></svg>">
+        <text y=%22.9em%22 font-size=%2290%22>📋</text></svg>" />
 
     <style>
         :root,
@@ -159,7 +166,7 @@
         hr {
             min-height: .15em;
             width: 100%;
-            border: None;
+            border: none;
             border-radius: var(--radius);
             color: var(--line);
             background-color: var(--line);
@@ -201,7 +208,7 @@
         button {
             color: var(--foreground);
             background-color: var(--line);
-            border: None;
+            border: none;
             border-radius: var(--radius);
             padding: .2em .2em;
             box-sizing: border-box;
@@ -331,8 +338,8 @@
     <main>
         <fieldset id="output-bar" class="input-field">
             <input id="click-board-output" placeholder="📋 CopyBoard" />
-            <button id="click-board-copy-button">📋</button>
-            <button id="click-board-clean-button">🧹</button>
+            <button id="click-board-copy-button" type="button">📋</button>
+            <button id="click-board-clean-button" type="button">🧹</button>
         </fieldset>
         <hr />
         <div id="click-board-tabview" class="tabview">
@@ -350,7 +357,7 @@
                         <template id="click-board-tabview-panel-row-template">
                             <div class="click-board-panel-row">
                                 <template id="click-board-tabview-button-template">
-                                    <button class="click-board-button">1.1</button>
+                                    <button class="click-board-button" type="button">1.1</button>
                                 </template>
                             </div>
                         </template>
@@ -386,7 +393,10 @@
                 </label>
             </div>
         </div>
-        <p>Copyright © <a href="https://github.com/undecV" target="_blank">undecV</a></p>
+        <p>
+            Copyright © <a href="https://github.com/undecV" target="_blank" rel="noopener noreferrer">undecV</a>
+            · <a href="https://github.com/undecV/Clipalette" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </p>
     </footer>
 
     <script>
@@ -564,10 +574,6 @@
                 modeSelector.addEventListener("change", (event) => {
                     callback(event.target.value);
                 });
-            }
-
-            toggleMode(mode = "auto") {
-
             }
         }
 

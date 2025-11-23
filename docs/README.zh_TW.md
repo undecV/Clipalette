@@ -2,7 +2,7 @@
 
 一鍵複製，隨處貼上
 
-[English](README.md) | [正體中文](docs/README.zh_TW.md)
+[English](../README.md) | [正體中文](./README.zh_TW.md)
 
 ![Screenshot](./screenshots/screenshot.v2.png)
 
